@@ -4,6 +4,8 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.edge.service import Service
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
+from selenium.webdriver.firefox.service import Service
+from webdriver_manager.firefox import GeckoDriverManager
 
 
 @pytest.fixture(autouse=True)
@@ -12,6 +14,8 @@ def setup(request, browser):
         driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     elif browser == "edge":
         driver = webdriver.Edge(service=Service(EdgeChromiumDriverManager().install()))
+    elif browser == "firefox":
+        driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()))
     else:
         print("browser not found")
     driver.get("https://petstore.octoperf.com/actions/Catalog.action")
