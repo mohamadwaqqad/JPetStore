@@ -5,7 +5,7 @@ class Utils:
     @staticmethod
     def read_data_from_excal(sheet):
         data_list = []
-        wb = load_workbook(filename=r"./testdata\testdata.xlsx")
+        wb = load_workbook(filename=r"./testdata/testdata.xlsx")
         sh = wb[sheet]
 
         row_ct = sh.max_row
